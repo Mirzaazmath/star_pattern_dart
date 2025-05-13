@@ -25,7 +25,7 @@ class _SparklingState extends State<Sparkling>
     animationController = AnimationController(
         vsync: this,
         duration: const Duration(
-          milliseconds: 1000,
+          milliseconds: 1500,
         ));
     animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -69,7 +69,7 @@ class _SparklingState extends State<Sparkling>
             center: Offset(size.width * (math.Random().nextDouble()),
                 size.height * (math.Random().nextDouble())),
             velocity: Offset(velocityX, velocityY),
-            color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0));
+            color: Colors.white);
       });
     } else {
       for (final star in myStars) {

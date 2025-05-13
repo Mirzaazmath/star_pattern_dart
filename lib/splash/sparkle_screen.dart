@@ -114,7 +114,11 @@ class _SparklingState extends State<Sparkling>
       }
     }
   }
-
+@override
+  void dispose() {
+  animationController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance!.addPostFrameCallback(postFrameCallback);

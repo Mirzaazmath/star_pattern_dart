@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:star_pattern/details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -50,7 +51,9 @@ class HomeScreen extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailsScreen(title:"Right Triangle",)));
+                      },
                       leading:Stack(
                         alignment: Alignment.center,
                         children: [
@@ -59,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                             value: 0,
                             backgroundColor: Colors.grey.shade700,
                           ),
-                          Icon(Icons.done,color: Colors.white,)
+                         // Icon(Icons.done,color: Colors.white,)
                         ],
                       ),
 

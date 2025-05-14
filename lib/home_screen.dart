@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:star_pattern/details_screen.dart';
+import 'package:star_pattern/model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -46,13 +47,13 @@ class HomeScreen extends StatelessWidget {
               child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 10,
+                itemCount: listOfStarPattern.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailsScreen(title:"Right Triangle",)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailsScreen(selectedIndex:index,)));
                       },
                       leading:Stack(
                         alignment: Alignment.center,
@@ -66,7 +67,11 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
 
-                      title: Text("Right Triangle",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                      title: Hero(
+                        tag: listOfStarPattern[index].title,
+                          child: Material(
+                              type: MaterialType.transparency, // likely
+                              child: Text(listOfStarPattern[index].title,style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white,fontWeight: FontWeight.bold),))),
 
                       trailing: Icon(Icons.arrow_forward_ios,color: Colors.grey,),
                     ),
